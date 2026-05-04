@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ taxonomy.name | capitalize }}</h1>
+<ul>
+    {% for term in terms %}
+    <li>
+        <a href="{{ term.permalink }}" title="{{ term.name }}">#{{ term.name }}</a>
+        {{ term.pages | length }} post{% if term.pages | length > 1 %}s{% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,58 @@
+@mixin style-light {
+    header h2 {
+        // Sublime Vivid
+        background: -webkit-linear-gradient(to right, #3f5efb, #fc466b);
+        background: linear-gradient(to right, #3f5efb, #fc466b);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+@mixin style-dark {
+    header h2 {
+        // JShine
+        background: -webkit-linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+        background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+    @include style-light;
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        @include style-dark;
+    }
+}
+
+[data-theme="dark"] {
+    @include style-dark;
+}
+
+.link-github:hover {
+    color: #ab7df8;
+}
+.link-mail:hover {
+    color: #f9a825;
+}
+.link-orcid:hover {
+    color: #a6ce39;
+}
+.link-twitter:hover {
+    color: #1da1f2;
+}
+.link-bluesky:hover {
+    color: #208bfe;
+}
+.link-mastodon:hover {
+    color: #6364ff;
+}
+.link-rss:hover {
+    color: #f57d00;
+}

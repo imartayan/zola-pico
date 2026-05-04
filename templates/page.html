@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}{% if page.toc and page.extra.toc %}
+<details class="toc floating-toc" open>
+    <summary><strong>Table of contents</strong></summary>
+    {{ macros::page_toc(page=page) }}
+</details>
+{% endif %}{% endblock %}
+
+{% block content %}
+<hgroup>
+    <h1>{{ page.title }}</h1>
+    <p>{{ macros::page_metadata(page=page) }}</p>
+</hgroup>
+{% if page.toc and page.extra.toc %}
+<details class="toc fixed-toc">
+    <summary><strong>Table of contents</strong></summary>
+    {{ macros::page_toc(page=page) }}
+</details>
+{% endif %}
+{{ page.content | safe }}
+{% endblock %}

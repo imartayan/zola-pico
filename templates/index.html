@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<header>
+    <hgroup>
+        <h1>{% if section.title %}{{ section.title }}{% else %}{{ config.title }}{% endif %}</h1>
+        <h2>{% if section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}</h2>
+    </hgroup>
+    {{ macros::social_links(social=config.extra.social) }}
+</header>
+{% endblock %}
+
+{% block content %}
+{{ section.content | safe }}
+{% endblock %}

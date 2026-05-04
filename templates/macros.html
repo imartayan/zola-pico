@@ -1,0 +1,117 @@
+{% macro github(username) %}
+<a class="link-github" href="https://github.com/{{ username }}" title="GitHub" target="_blank" rel="noopener">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+    </svg>
+</a>
+{% endmacro %}
+
+{% macro mail(prefix, suffix) %}
+<a class="link-mail" href="javascript:{var a='{{ prefix }}',b='{{ suffix }}';location='mailto:'+a+'@'+b}" title="Email">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+    </svg>
+</a>
+{% endmacro %}
+
+{% macro orcid(id) %}
+<a class="link-orcid" href="https://orcid.org/{{ id }}" title="ORCID" target="_blank" rel="noopener">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+        <path fill-rule="evenodd" d="M256,128c0,70.7-57.3,128-128,128C57.3,256,0,198.7,0,128C0,57.3,57.3,0,128,0C198.7,0,256,57.3,256,128z M86.3,186.2H70.9V79.1h15.4v48.4V186.2z M108.9,79.1h41.6c39.6,0,57,28.3,57,53.6c0,27.5-21.5,53.6-56.8,53.6h-41.8V79.1z M124.3,172.4h24.5c34.9,0,42.9-26.5,42.9-39.7c0-21.5-13.7-39.7-43.7-39.7h-23.7V172.4z M88.7,56.8c0,5.5-4.5,10.1-10.1,10.1c-5.6,0-10.1-4.6-10.1-10.1c0-5.6,4.5-10.1,10.1-10.1C84.2,46.7,88.7,51.3,88.7,56.8z" />
+    </svg>
+</a>
+{% endmacro %}
+
+{% macro twitter(username) %}
+<a class="link-twitter" href="https://twitter.com/{{ username }}" title="Twitter" target="_blank" rel="noopener">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        <path transform="rotate(180, 8, 8)" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+    </svg>
+</a>
+{% endmacro %}
+
+{% macro bluesky(username) %}
+<a class="link-bluesky" href="https://bsky.app/profile/{{ username }}" title="Bluesky" target="_blank" rel="noopener">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 64 57">
+        <path d="M13.873 3.805C21.21 9.332 29.103 20.537 32 26.55v15.882c0-.338-.13.044-.41.867-1.512 4.456-7.418 21.847-20.923 7.944-7.111-7.32-3.819-14.64 9.125-16.85-7.405 1.264-15.73-.825-18.014-9.015C1.12 23.022 0 8.51 0 6.55 0-3.268 8.579-.182 13.873 3.805ZM50.127 3.805C42.79 9.332 34.897 20.537 32 26.55v15.882c0-.338.13.044.41.867 1.512 4.456 7.418 21.847 20.923 7.944 7.111-7.32 3.819-14.64-9.125-16.85 7.405 1.264 15.73-.825 18.014-9.015C62.88 23.022 64 8.51 64 6.55c0-9.818-8.578-6.732-13.873-2.745Z"></path>
+    </svg>
+</a>
+{% endmacro %}
+
+{% macro mastodon(username, instance) %}
+<a class="link-mastodon" href="https://{{ instance }}/@{{ username }}" title="Mastodon" target="_blank" rel="me noopener">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764.442.505.661 1.187.661 2.046v4.203z" />
+    </svg>
+</a>
+{% endmacro %}
+
+{% macro rss(url) %}
+<a class="link-rss" href="{{ url }}" title="RSS feed" target="_blank" rel="noopener">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm1.5 2.5c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1 0-2zm0 4a6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1 0-2zm.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+    </svg>
+</a>
+{% endmacro %}
+
+{% macro social_links(social) %}
+<nav>
+    <ul>
+        {% if social.github %}<li>{{ macros::github(username=social.github) }}</li>{% endif %}
+        {% if social.orcid %}<li>{{ macros::orcid(id=social.orcid) }}</li>{% endif %}
+        {% if social.mail_prefix and social.mail_suffix %}<li>
+            {{ macros::mail(prefix=social.mail_prefix, suffix=social.mail_suffix) }}
+        </li>{% endif %}
+        {% if social.twitter %}<li>{{ macros::twitter(username=social.twitter) }}</li>{% endif %}
+        {% if social.bluesky %}<li>{{ macros::bluesky(username=social.bluesky) }}</li>{% endif %}
+        {% if social.mastodon_username and social.mastodon_instance %}<li>{{
+            macros::mastodon(username=social.mastodon_username, instance=social.mastodon_instance) }}</li>{% endif %}
+    </ul>
+</nav>
+{% endmacro %}
+
+{% macro render_tags(taxonomy, terms) %}
+{% for term in terms -%}
+<a href="{{ get_taxonomy_url(kind=taxonomy, name=term) }}" title="#{{ term }}">#{{ term }}</a>
+{% endfor -%}
+{% endmacro %}
+
+{% macro page_metadata(page, reading_time=false) %}
+{% set previous = false -%}
+{% if page.date -%}{% if previous %} • {% endif %}
+<time datetime="{{ page.date }}">{{ page.date | date(format='%b %e, %Y') }}</time>
+{% set previous = true %}{% endif -%}
+{% if page.updated -%}{% if previous %} • {% endif %}
+<time datetime="{{ page.updated }}">Updated {{ page.updated | date(format='%b %e, %Y') }}</time>
+{% set previous = true %}{% endif -%}
+{% if reading_time %}{% if previous %} • {% endif %}
+{{ page.reading_time }} min
+{% set previous = true %}{% endif -%}
+{% for taxonomy, terms in page.taxonomies -%}
+{% if previous %} • {% endif %}
+{{ macros::render_tags(taxonomy=taxonomy, terms=terms) }}
+{% set previous = true %}
+{% endfor -%}
+{% endmacro %}
+
+{% macro page_description(page) %}
+{% if page.description %}{{ page.description | trim | striptags}}
+{% else %}{{ page.content | trim | striptags | truncate(length=140)}}{% endif %}
+{% endmacro %}
+
+{% macro page_toc(page) %}
+{% if page.toc %}<ul>{% for h1 in page.toc %}{% set i1 = loop.index %}
+    <li>
+        <span>{{ i1 }}</span> <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+        {% if h1.children %}<ul>{% for h2 in h1.children %}{% set i2 = loop.index %}
+            <li>
+                <span>{{ i1 }}.{{ i2 }}</span> <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>{% if h2.children %}<ul>{% for h3 in h2.children %}{% set i3 = loop.index %}
+                    <li>
+                        <span>{{ i1 }}.{{ i2 }}.{{ i3 }}</span> <a href="{{ h3.permalink | safe }}">{{ h3.title }}</a>
+                    </li>{% endfor %}
+                </ul>{% endif %}
+            </li>{% endfor %}
+        </ul>{% endif %}
+    </li>{% endfor %}
+</ul>{% endif %}
+{% endmacro %}

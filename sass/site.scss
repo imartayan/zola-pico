@@ -1,0 +1,275 @@
+// --------------------------------------------------
+// Pico 2
+// --------------------------------------------------
+
+// @use "../pico/helpers/copyright";
+
+// Config
+@forward "../pico/settings" with (
+    $theme-color: "indigo",
+    $enable-semantic-container: true,
+    $enable-classes: false,
+    $enable-responsive-typography: false
+);
+
+// Theming
+@use "../pico/themes/default";
+
+// Layout
+@use "../pico/layout/document"; // html
+@use "../pico/layout/landmarks"; // body, header, main, footer
+@use "../pico/layout/section"; // section
+@use "../pico/layout/container"; // .container, .container-fluid
+// @use "../pico/layout/grid"; // .grid
+// @use "../pico/layout/overflow-auto"; // .overflow-auto
+
+// Content
+@use "../pico/content/typography"; // headings, p, ul, blockquote, ...
+@use "../pico/content/link"; // a, role="link"
+// @use "../pico/content/button"; // button, role="button", type="button", type="submit" ...
+@use "../pico/content/table"; // table, tr, td, ...
+@use "../pico/content/embedded"; // audio, canvas, iframe, img, svg, video
+@use "../pico/content/code"; // pre, code, ...
+// @use "../pico/content/figure"; // figure, figcaption
+// @use "../pico/content/misc"; // hr, template, [hidden], dialog, canvas
+
+// Forms
+// @use "../pico/forms/basics"; // input, select, textarea, label, fieldset, legend
+// @use "../pico/forms/checkbox-radio-switch"; // type="checkbox", type="radio", role="switch"
+// @use "../pico/forms/input-color"; // type="color"
+// @use "../pico/forms/input-date"; // type="date", type="datetime-local", type="month", type="time", type="week"
+// @use "../pico/forms/input-file"; // type="file"
+// @use "../pico/forms/input-range"; // type="range"
+// @use "../pico/forms/input-search"; // type="search"
+
+// Components
+@use "../pico/components/accordion"; // details, summary
+@use "../pico/components/card"; // article
+// @use "../pico/components/dropdown"; // details.dropdown
+// @use "../pico/components/group"; // role="group"
+// @use "../pico/components/loading"; // aria-busy=true
+// @use "../pico/components/modal"; // dialog
+@use "../pico/components/nav"; // nav
+// @use "../pico/components/progress"; // progress
+// @use "../pico/components/tooltip"; // data-tooltip
+
+// Utilities
+// @use "../pico/utilities/accessibility"; // -ms-touch-action, aria-*
+// @use "../pico/utilities/reduce-motion"; // prefers-reduced-motion
+
+// --------------------------------------------------
+// Custom Style
+// --------------------------------------------------
+
+@import "../pico/settings";
+
+a {
+    --pico-text-decoration: none;
+}
+
+ul {
+    padding-left: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    --pico-font-weight: 600;
+    &:hover a.anchor {
+        visibility: visible;
+    }
+}
+
+nav,
+article hgroup {
+    a {
+        color: inherit;
+    }
+}
+
+#theme-switcher {
+    color: #f9a825;
+}
+
+header {
+    text-align: center;
+    hgroup {
+        h1 {
+            font-size: 2.75rem;
+            font-weight: 200;
+        }
+        h2 {
+            font-size: 1.3rem !important;
+            font-weight: 300;
+        }
+    }
+    nav ul {
+        margin: 0 auto !important;
+        li {
+            --pico-nav-element-spacing-horizontal: 1rem;
+        }
+    }
+}
+
+main,
+article hgroup {
+    > h1 {
+        --pico-font-size: 1.625rem;
+        --color: var(--pico-h2-color);
+    }
+    > h2 {
+        --pico-font-size: 1.375rem;
+        --color: var(--pico-h3-color);
+    }
+    > h3 {
+        --pico-font-size: 1.25rem;
+        --color: var(--pico-h4-color);
+    }
+    > h4 {
+        --pico-font-size: 1.125rem;
+        --color: var(--pico-h5-color);
+    }
+    > h5 {
+        --pico-font-size: 1rem;
+        --color: var(--pico-h6-color);
+    }
+}
+
+.anchor {
+    visibility: hidden;
+    user-select: none;
+    margin-left: 0.5em;
+    font-size: 0.85em;
+}
+
+@if map-get($breakpoints, "lg") {
+    @media (min-width: map-get(map-get($breakpoints, "lg"), "breakpoint")) {
+        main p,
+        article,
+        blockquote {
+            text-align: justify;
+        }
+        main > h1 {
+            border-bottom: 0.25rem solid var(--pico-text-selection-color);
+        }
+    }
+    @media (max-width: map-get(map-get($breakpoints, "lg"), "breakpoint")) {
+        .katex-display {
+            overflow-x: auto;
+        }
+    }
+}
+
+blockquote {
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+pre > code {
+    line-height: 1.2;
+}
+
+details > summary:focus:not([role="button"]) {
+    color: var(--pico-accordion-close-summary-color);
+}
+
+details[open] > summary:focus {
+    color: var(--pico-accordion-open-summary-color);
+}
+
+:not(article) > details > summary::after {
+    float: left;
+    background-position: left center;
+    margin-inline-start: -3px;
+    margin-inline-end: 3px;
+}
+
+.toc {
+    font-size: 0.875rem;
+    --pico-font-weight: 500;
+    line-height: 1.25;
+    a {
+        color: inherit;
+    }
+    > ul {
+        padding-left: 0;
+    }
+    li {
+        list-style: none;
+    }
+}
+
+@if map-get($breakpoints, "xl") {
+    @media (max-width: map-get(map-get($breakpoints, "xl"), "breakpoint")) {
+        .fixed-toc {
+            li {
+                color: var(--pico-primary);
+            }
+        }
+        .floating-toc {
+            display: none;
+        }
+    }
+    @media (min-width: map-get(map-get($breakpoints, "xl"), "breakpoint")) {
+        .fixed-toc {
+            display: none;
+        }
+        .floating-toc {
+            position: sticky;
+            float: left;
+            top: 0;
+            padding-top: calc(var(--pico-block-spacing-vertical) * 2.5);
+            padding-left: var(--pico-block-spacing-horizontal);
+            padding-right: calc(var(--pico-block-spacing-horizontal) / 2);
+            width: calc((100vw - map-get(map-get($breakpoints, "xl"), "viewport")) / 2);
+            // TODO move right
+            word-wrap: break-word;
+            li.active,
+            li.active-parent {
+                color: var(--pico-h1-color);
+            }
+        }
+    }
+}
+
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+    .floating-toc ul {
+        color: #969eaf; // zinc-350
+    }
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        .floating-toc ul {
+            color: var(--pico-muted-color);
+        }
+    }
+}
+
+[data-theme="dark"] {
+    .floating-toc ul {
+        color: var(--pico-muted-color);
+    }
+}
+
+.grid {
+    grid-column-gap: var(#{$css-var-prefix}grid-column-gap);
+    grid-row-gap: var(#{$css-var-prefix}grid-row-gap);
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @if map-get($breakpoints, "md") {
+        @media (min-width: map-get(map-get($breakpoints, "md"), "breakpoint")) {
+            grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
+        }
+    }
+
+    & > * {
+        min-width: 0; // HACK for children in overflow
+    }
+}

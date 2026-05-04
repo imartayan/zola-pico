@@ -1,0 +1,44 @@
+# https://www.getzola.org/documentation/getting-started/configuration/
+
+base_url = "yourwebsite.io"
+title = "Site title"
+author = "Your name"
+description = "Site description"
+default_language = "en"
+output_dir = "public"
+ignored_content = ["**.DS_Store"]
+preserve_dotfiles_in_output = false
+compile_sass = true
+minify_html = false
+generate_feeds = false
+feed_filenames = ["atom.xml"]
+build_search_index = false
+
+[markdown]
+render_emoji = true
+external_links_target_blank = true
+smart_punctuation = false
+
+[markdown.highlighting]
+theme = "catppuccin-frappe"
+
+[slugify]
+paths = "on"
+taxonomies = "on"
+anchors = "on"
+
+[extra]
+keywords = ["some keywords", "other keywords"]
+navbar_items = [
+    { url = "$BASE_URL/posts", text = "Posts", description = "Posts" },
+]
+
+[extra.social]
+github = "github-id"
+orcid = "orcid-id"
+mail_prefix = "username"
+mail_suffix = "domain"
+# twitter = "twitter-id"
+# bluesky = "bluesky-id"
+# mastodon_username = "username"
+# mastodon_instance = "instance"

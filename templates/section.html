@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block header %}{% if section.title %}
+<header>
+    {% if section.description %}
+    <hgroup>
+        <h1>{{ section.title }}</h1>
+        <h2>{{ section.description }}</h2>
+    </hgroup>
+    {% if section.generate_feeds %}
+    <nav>
+        <ul>
+            <li>{{ macros::rss(url=get_url(path=section.path ~ config.feed_filenames.0)) }}</li>
+        </ul>
+    </nav>
+    {% endif %}
+    {% else %}
+    <hgroup>
+        <h1>{{ section.title }}</h1>
+        {% if section.generate_feeds %}{{ macros::rss(url=get_url(path=section.path ~ config.feed_filenames.0)) }}{% else %}<br>{% endif %}
+    </hgroup>
+    {% endif%}
+</header>
+{% endif %}{% endblock %}
+
+{% block content %}
+{{ section.content | safe }}
+{% for page in section.pages %}
+<article>
+    <hgroup>
+        <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
+        <p>{{ macros::page_metadata(page=page) }}</p>
+    </hgroup>
+    <p>{{ macros::page_description(page=page) }}</p>
+</article>
+{% endfor %}
+{% endblock %}
